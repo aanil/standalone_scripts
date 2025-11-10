@@ -56,8 +56,8 @@ def main():
     sampleList.sort()
 
     for sample in sampleList:
-        path_pattern = os.path.join(data_path, sample, '*/*/*R1*.gz')
-        paths = glob.glob(path_pattern)
+        path_pattern = os.path.join(data_path, sample, '**', '*R1*.gz')
+        paths = glob.glob(path_pattern, recursive=True)
 
         for counter, R1 in enumerate(paths, 1):
             R2 = R1.replace('_R1_','_R2_')
