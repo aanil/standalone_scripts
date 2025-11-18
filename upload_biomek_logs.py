@@ -36,7 +36,6 @@ def create_doc_from_log_file(doc_option, handle, couch, log_file_path, db=None):
                         doc["run_finished"] = True          
             doc["errors"] = error_lines
     elif doc_option == "update":
-        doc = db.get(handle)
         doc = couch.get_document(db=db, doc_id=handle).get_result()
         with open(os.path.join(log_file_path, doc["file_name"]), "r", encoding="utf-8-sig") as inp:
             contents=inp.readlines()

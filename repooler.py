@@ -63,8 +63,7 @@ def connection():
 
 def proj_struct(couch, project, target_clusters):
     """"Fetches the structure of a project"""
-    db ="x_flowcells"
-    view = db.view('names/project_ids_list')
+    db = "x_flowcells"
     view = couch.post_view(
         db=db,
         ddoc='names',
